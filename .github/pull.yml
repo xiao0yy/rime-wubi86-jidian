@@ -1,0 +1,10 @@
+version: "1"
+rules:
+  - base: master
+    upstream: KyleBing:master
+    mergeMethod: merge
+    conflictReviewers:
+      - xiao0yy
+label: ":arrow_heading_down: pull"
+conflictLabel: "merge-conflict"
+
