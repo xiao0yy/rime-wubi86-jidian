@@ -1,14 +1,15 @@
 ![rime_all](https://user-images.githubusercontent.com/12215982/144625408-61b43796-e120-4e12-9c70-ade0d91a77b3.png)
 
-该库是 Rime 输入法的一个 86版极点五笔的输入方案，支持多平台（Windows、macOS、Linux）
+该库是 [Rime](https://rime.im/) 输入法的一个 86版极点五笔的输入配置方案，支持多平台（Windows、macOS、Linux）
 
 ## 一、概述
 
-Rime 是个输入法集合，涵盖常用的三个平台 **Windows**、**macOS**、**Linux**，三个平台对应的输入法如上图。
+Rime 是个输入法内核，在它的基础之上，又出现了涵盖 **Windows**、**macOS**、**Linux** 三个常用系统平台的输入法，对应的输入法名如上图。
 
 该输入法具有高度可定制化的特性，输入法通过读取不同的配置文件，来实现不同输入方式：**全拼**、**双拼**、**五笔**、**仓颉**，设置不同的输入习惯：**二三候选**、**回车清码**、**z键拼音反查**等等。
 
-正因为如此高的可自定义性，拉高了它的使用门槛。为了让更多的五笔用户更省心地使用 Rime 输入五笔，就有了这个86五笔输入方案，它的输入习惯比较接近于之前的极点五笔，码表也是使用的极点五笔的码表。
+正因为如此高的可自定义性，拉高了它的使用门槛。为了让更多的五笔用户更省心地使用 Rime 输入五笔，就有了当前这个 86五笔输入方案，它的输入习惯比较接近于之前的极点五笔，码表也是使用的极点五笔的码表。
+
 > 单字的顺序严格对标原极点输入法词库： [五笔码表文件](https://github.com/KyleBing/wubi-jidan-dict)。 比如一级简码的二位候选： 
 > - `y`-`言`
 > - `h`-`目`
@@ -17,6 +18,10 @@ Rime 是个输入法集合，涵盖常用的三个平台 **Windows**、**macOS**
 由于三个平台使用的码表配置文件是一样的，所以能够在多个平台间保持同一种输入习惯，打起字来也会比较舒服。
 
 该码表词条不是很多，很多专业性的词语可能会没有，需要自己添加，可以使用配套工具 [**五笔词条工具**](https://github.com/KyleBing/wubi-dict-editor) 来完成词条的添加。
+> 另外也可以通过这个工具分享你的常用词条，我的想法是维护一个咱们五笔用户自己的词库，最终实现非常舒服的码字的目标。
+
+> ![2022-12-29 09 09 39](https://user-images.githubusercontent.com/12215982/209891815-057ce25b-cad5-4994-9495-9f2a0768733d.png)
+
 
 
 ## 二、不同平台的输入法外观
@@ -66,7 +71,8 @@ __Ubuntu__
 ├── wubi86_jidian_trad.schema.yaml          # 方案 - 五笔简入繁出
 ├── wubi86_jidian_trad_pinyin.schema.yaml   # 方案 - 五笔拼音混输 简入繁出
 ├── wubi86_jidian_user.dict.yaml            # 词库 - 用户私人词库
-└── wubi86_jidian_extra.dict.yaml           # 词库 - 扩展词库
+├── wubi86_jidian_extra.dict.yaml           # 词库 - 扩展词库
+└── wubi86_jidian_extra_district.dict.yaml  # 词库 - 扩展词库 - 行政区域名称： 省市县区
 
 ```
 
@@ -117,7 +123,34 @@ ubuntu 的配置文件目录在
 ~/.config/ibus/rime/
 ```
 
-## 五、使用说明
+## 五、扩展词库
+
+默认已添加的词库有：
+```yaml
+  - wubi86_jidian_user                # 个人私有词库
+  - wubi86_jidian_extra               # 扩展词库
+  - wubi86_jidian_extra_district      # 扩展词库 - 行政区域
+```
+
+可以通过修改 `wubi86_jidian.dict.yaml` 文件头部的部分来启用、停用某一个词库。
+
+比如想停用 `行政区域` 这个词库，直接在其前面添加  `#` 或者直接删除该行，执行输入法的 `部署` 或 `Deploy` 操作后即可生效。
+
+**行政区域**
+`行政区域` 这个词库有 3000 多个词条，可能会导致重码变多，可以根据自己需要删减其内容，文件中已经根据省份划分地域名了。
+
+```yaml
+# 天津市
+天津市	        giym		120000
+天津市市辖区	    giya		120100
+和平区	        tgaq		120101
+河东区	        iaaq		120102
+河西区	        isaq		120103
+南开区	        fgaq		120104
+河北区	        iuaq		120105
+```
+
+## 六、使用说明
 
 ### 1. 选项菜单
 在输入状态时，<kbd>control</kbd> + <kbd>0</kbd> 或者 <kbd>shift</kbd> + <kbd>control</kbd> + <kbd>0</kbd> 弹出菜单
@@ -177,10 +210,17 @@ ubuntu 的配置文件目录在
 <img width="300" src="https://user-images.githubusercontent.com/12215982/134291024-7df6073c-ec5a-420c-bcd1-2e63ea33d04b.jpg"/>
 
 
-## 六、常见自定义功能
+## 七、常见自定义功能
 所有配置说明都在配置文件中说明了，如果有其它问题可以在 `issue` 中提出，或者在群里（[QQ群：878750538](https://jq.qq.com/?_wv=1027&k=st8cY2sI)） 讨论，有需要就 `@十月`，一定要 `@` 哟，不然我看不到的
 
-### 1. 回车清码
+### 1. 候选个数
+默认是5，可以自定义候选面板中的候选词的个数，编辑  `default.custom.yaml` 中以下这段，修改成你想要的个数即可，最多支持10个
+```yaml
+  menu:
+      page_size: 5      # 候选词数量，最多支持 10 个
+```
+
+### 2. 回车清码
 默认是开启的
 
 想要关闭，打开 `default.custom.yaml` 文件，找到下面这行，在前面添加 `#` 即可，如下
@@ -190,13 +230,13 @@ ubuntu 的配置文件目录在
       - { when: composing, accept: Return, send: Escape }
 ```
 
-### 2. 空码时自动清码
+### 3. 空码时自动清码
 默认配置是不会自动清的，想要自动清码，修改文件  `wubi86_jidian.schema.yaml` 中 `speller` 这一栏，将前面的 `#` 号删除即可，如下
 ```yaml
   auto_clear: max_length                # 空码时自动清空
 ```
 
-### 3. 编码提示
+### 4. 编码提示
 默认是关闭的，
 想要开启，打开 `wubi86_jidian.schema.yaml` 编辑 `translator` -> `comment_format` 改成如下即可
 
@@ -205,23 +245,23 @@ ubuntu 的配置文件目录在
 #    - xform/.+//                       # 注释掉该行，即可显示词条编码
 ```
 
-### 4. 关于手动造词功能
+### 5. 关于手动造词功能
 一种方式是，手动往词库中添加词组，并重新部署
 > 这个操作要注意的是词组与编码之间的符号是`tab`，写错了这个词是不会被识别的
 
 另一种是使用工具。Rime 默认是没有词条管理工具的，所以就写了一个工具，基本满足日常需求，如果有什么其它需要的功能，可以跟我说。
 > [五笔词条工具](https://github.com/KyleBing/wubi-dict-editor)
 
-<img width="812" alt="Screen Shot 2021-11-22 at 19 22 45" src="https://user-images.githubusercontent.com/12215982/143464548-0458c637-ce41-450e-8faa-e826dd1fa5f3.png">
+<img width="1362" alt="Screenshot 2022-12-16 at 21 28 54" src="https://user-images.githubusercontent.com/12215982/208109387-5062a921-8eef-4063-9936-42762197d6c8.png">
 
-### 5. 输出系统变量
+### 6. 输出系统变量
 自 Rime `v0.13` 之后可自定义输出系统变量，如日期等
 
 文件 [`rime.lua`](https://github.com/KyleBing/rime-wubi86-jidian/blob/master/rime.lua) 盛放的是调用的方法，你需要在相应的 `XXXX.schema.yaml` 文件的 `engine`/`translators` 字段添加一些东西，可以参阅本库的 [`wubi86_jidian.schema.yaml`](https://github.com/KyleBing/rime-wubi86-jidian/blob/master/wubi86_jidian.schema.yaml) 文件。
 
 具体 `rime.lua` 文件说明参阅这里： [https://github.com/hchunhui/librime-lua/blob/master/sample/lua/date.lua](https://github.com/hchunhui/librime-lua/blob/master/sample/lua/date.lua)
 
-### 6. 开启自动造词
+### 7. 开启自动造词
 
 <img width="463" alt="auto-create-words" src="https://user-images.githubusercontent.com/12215982/114480534-4b922200-9c35-11eb-8d08-4c8eacb407a2.png">
 
@@ -242,7 +282,16 @@ translator:
 ```
 
 
-## 七、其它相关链接
+### 8. 单字派
+如果你是单字派，只打单字，可以修改 `wubi86_jidian.schema.yaml` 这个文件，找到以下位置，根据需要去除对应行前面的 `#`，重新部署即可生效
+```yaml
+  filters:
+#   - lua_filter@single_char_first_filter # 单字优先
+#    - lua_filter@single_char_only # 纯单字
+```
+
+
+## 八、其它相关链接
 
 __工具链接__
 - [x] 五笔码表助手： [https://github.com/KyleBing/wubi-dict-editor](https://github.com/KyleBing/wubi-dict-editor)
