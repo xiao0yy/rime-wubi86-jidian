@@ -18,7 +18,7 @@ patch:
     font_face: "Microsoft Yahei"            # 字体 - 候选文字 例子： "Microsoft Yahei:12:15:bold"
 
     label_font_face: "Microsoft Yahei"     # string 序号字体 标注
-    label_font_point: 10                   # number    序号字体 大小
+    label_font_point: 11                   # number    序号字体 大小
     comment_font_face: "Microsoft Yahei"   # string 解释字体
     comment_font_point: 12                 # number    解释字体 大小
 
