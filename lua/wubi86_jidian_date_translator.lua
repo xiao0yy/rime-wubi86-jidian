@@ -1,39 +1,5 @@
---- 过滤器：单字在先
-function single_char_first_filter(input)
-    local l = {}
-    for cand in input:iter() do
-        if (utf8.len(cand.text) == 1) then
-            yield(cand)
-        else
-            table.insert(l, cand)
-        end
-    end
-    for cand in ipairs(l) do
-        yield(cand)
-    end
-end
 
---- 计算器
---- @KyleBing 2022-01-17
-function calculator(input, seg)
-    if string.find(input, 'coco') ~= nil then -- 匹配 coco 开头的字符串
-        local _, _, a, operation, b = string.find(input, "coco(%d+%.?%d*)([%+%-%*/])(%d+%.?%d*)")
-        local result = 0
-        if operation == '+' then
-            result = a + b
-        elseif operation == '-' then
-            result = a - b
-        elseif operation == '*' then
-            result = a * b
-        elseif operation == '/' then
-            result = a / b
-        end
-        yield(Candidate("coco", seg.start, seg._end, result, "计算器"))
-    end
-end
-
-
-function date_translator(input, seg)
+function wubi86_jidian_date_translator(input, seg)
 
     -- 日期格式说明：
 
@@ -99,4 +65,4 @@ function date_translator(input, seg)
     end
 end
 
-
+return wubi86_jidian_date_translator
