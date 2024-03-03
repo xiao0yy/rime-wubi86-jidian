@@ -4,6 +4,7 @@ version: "4.3"
 sort: by_weight # by_weight=权重 original=原始
 import_tables: # 此处是添加用户自定义词库的地方
   - wubi86_jidian_user                # 个人私有词库
+  - wubi86_jidian_user_hamster        # Hamster 词库
   - wubi86_jidian_extra               # 扩展词库
 #  - wubi86_jidian_extra_district      # 扩展词库 - 行政区域
 
@@ -9751,7 +9752,7 @@ u	copu	10
 有效	deuq	10
 有闲	deus	10
 鬀	deut	20
-有道	deut	10
+有道	deut	30
 有益	deuw	10
 胡闹	deuy	10
 郁怒	devc	10
@@ -25448,8 +25449,8 @@ HDR	hdr	10
 奌	hkdu	10
 鼎足三分	hkdw	10
 睊	hkeg	10
+占用	hket	30
 战胜	hket	20
-占用	hket	10
 占	hkf	10
 占地	hkfb	20
 战地	hkfb	10
@@ -37879,8 +37880,8 @@ km/h	kmh	20
 园艺	lfan	20
 转世	lfan	10
 园区	lfaq	10
-围攻	lfat	20
-黑莓	lfat	10
+围攻	lfat	10
+黑莓	lfat	20
 园子	lfbb	30
 黑子	lfbb	20
 墨子	lfbb	10
@@ -42087,8 +42088,8 @@ MacbookPro	mbp	10
 敗	mty	10
 几度	mtya	10
 內	mtyi	10
-几遍	mtyn	20
-账户	mtyn	10
+几遍	mtyn	10
+账户	mtyn	20
 峰峦	mtyo	10
 贬义	mtyq	20
 凤毛麟角	mtyq	10
@@ -45872,8 +45873,8 @@ MacbookPro	mbp	10
 糣	oaqj	10
 炼句	oaqk	10
 炼钢	oaqm	10
-烧饼	oaqn	20
-烧饭	oaqn	30
+烧饼	oaqn	30
+烧饭	oaqn	20
 燪	oaqn	10
 炼铁	oaqr	10
 炼狱	oaqt	10
@@ -48047,8 +48048,8 @@ MacbookPro	mbp	10
 军需品	pfkk	10
 宗兄	pfkq	10
 寒噤	pfks	10
-塞车	pflg	20
-赛车	pflg	10
+10	pflg	20
+赛车	pflg	20
 安魂曲	pfma	10
 守财	pfmf	10
 寒峭	pfmi	10
@@ -78112,7 +78113,7 @@ m³	uuyy	10	立方
 頜	wgkm	40
 顩	wgkm	30
 龥	wgkm	20
-全员	wgkm	10
+全员	wgkm	55
 翕	wgkn	20
 翖	wgkn	10
 鴿	wgko	20
@@ -80902,7 +80903,7 @@ Windows	wind	10
 欲火	wwoo	20
 含含糊糊	wwoo	10
 谷粒	wwou	10
-个位数	wwov	20
+个位数	wwov	5
 人数	wwov	10
 谷米	wwoy	10
 从宽	wwpa	10
@@ -84187,8 +84188,8 @@ XBox	xbox	10
 维生	xwtg	10
 引体向上	xwth	10
 维和	xwtk	10
-纪念币	xwtm	30
-纵向	xwtm	20
+纵向	xwtm	30
+纪念币	xwtm	20
 纵身	xwtm	10
 给我	xwtr	10
 维系	xwtx	20
@@ -85806,9 +85807,9 @@ XBox	xbox	10
 主席	ygya	20
 主谋	ygya	10
 语序	ygyc	10
-主讲	ygyf	30
+主讲	ygyf	10
 谈天说地	ygyf	20
-谢天谢地	ygyf	10
+谢天谢地	ygyf	30
 评语	ygyg	30
 主语	ygyg	20
 就事论事	ygyg	10
@@ -86133,9 +86134,9 @@ XBox	xbox	10
 螤	yjjw	10
 裹足	yjkh	10
 齐唱	yjkj	10
-谩骂	yjkk	30
-充电器	yjkk	20
-计时器	yjkk	10
+谩骂	yjkk	20
+充电器	yjkk	30
+计时器	yjkk	25
 齐鸣	yjkq	10
 谩	yjl	10
 谩	yjlc	20
